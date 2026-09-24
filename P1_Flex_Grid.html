@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contenedos{
+
+            /*display: flex;
+            flex-direction: column;*/
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .cart{
+            width: 80px;
+            padding: 20px;
+            margin: 10px;
+        }
+        .cart-larga{
+            grid-column: 3;
+            grid-row: span 3;
+            display: flex;
+            flex-direction: column;
+        }
+        </style>
+</head>
+<body>
+    <div class="contenedos">
+        <div class="cart" style="background-color: lightgreen;">CART 1</div>
+        <div class="cart" style="background-color: rgb(0, 229, 255);">CART 2</div>
+        <div class="cart-larga" style="background-color: rgb(255, 0, 0);">CART 3</div>
+        <div class="cart" style="background-color: rgb(238, 144, 218);">CART 4</div>
+        <div class="cart" style="background-color: rgb(255, 251, 0);">CART 5</div>
+        <div class="cart" style="background-color: rgba(255, 0, 0, 0.221);">CART 6</div>
+        <div class="cart" style="background-color: rgb(98, 0, 255);">CART 7</div>
+
+
+    </div>
+</body>
+</html>
