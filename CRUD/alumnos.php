@@ -48,9 +48,9 @@ $query = mysqli_query($con, $sql);
                 <td><?php echo $row['apellido_m']; ?></td>
                 <td><?php echo $row['edad']; ?></td>
                 <td>
-                    Editar
+                    <a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
                     <br>
-                    Eliminar
+                    <a href="delete.php?id=<?php echo $row['id']; ?>">Eliminar</a>
                 </td>
             </tr>
             <?php
