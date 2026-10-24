@@ -32,3 +32,4 @@ def registro():
 #iniciamos el servidor flask en el puerto 5000
 if __name__ == "__main__":
     app.run(port=5000)
+    #KJHG
