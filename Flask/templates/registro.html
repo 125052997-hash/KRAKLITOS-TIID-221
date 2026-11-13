@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+{% comment %} <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+{% endcomment %}
+</head>
+<body>
+    <div>
+        <h1>registro de usuarios</h1>
+        <form action="">
+            <label>Nombre(s):</label>
+            <input type="text" name="nombre">
+            <label>Apellido paterno:</label>
+            <input type="text" name="Apellido_p">
+            <label>Apellido materno:</label>
+            <input type="text" name="Apellido_m">
+            <label>Correo:</label>
+            <input type="email" name="correo">
+            <label>Contraseña:</label>
+            <input type="password" name="password">
+            <label for="id_rol">Rol: </Label>
+            <select name="id_rol" id="id_rol">
+                <option value="1">Administrador</option>
+                <option value="2">Usuario</option>
+            <select>
+            <button type="submit">Registrarse</button>
+        </form>
+        <p><a href="{{ url_for('login') }}"> Regresar</a></p>
+    </div>
+
+</body>
+{% comment %}  {% endcomment %}
+</html>
