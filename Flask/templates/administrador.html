@@ -1,13 +1,31 @@
+
+{% extends 'nav_footer.html' %}
+
+{% block content  %}
+
+    <div class="p-10">
+
+        <h1 class="text-3xl font-bold">
+            Bienvenido, Administrador
+        </h1>
+
+        <p class="mt-4">
+            Este es el contenido principal de la pagina
+        </p>
+
+    </div>
+
+{% endblock  %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario</title>
+    <title>HOME DE ADMINISTRADORES</title>
 </head>
 <body>
-    Este es el dashboard de usuarios
-
+    Este es el dashboard de Administrador
     <p><a href="{{ url_for('logout') }}">Cerrar Sesión</a></p>
 </body>
 </html>

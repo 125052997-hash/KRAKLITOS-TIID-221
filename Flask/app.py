@@ -1,7 +1,7 @@
 #Importamos los paquetes de flask
 from flask import Flask, render_template, request, redirect, url_for,session
 
-#Importar las funciones para generar hashes de la contraseña y comprobar si una contraseña coincide con el hash
+#Importar las funciones para generar hashes de la contraseña y comprobar si una contraseña coincide con el hash 
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from flask_mysqldb import MySQL
@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MTSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = ''
+app.config['MYSQL_DB'] = 'FlaskDB'
 #Permite que Flask vuelva a cargar las plantillas cuando se modifican
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.secret_key = 'mysecretkey'
@@ -86,20 +86,20 @@ def login():
         password = request.form["password"]
         #Creamos el cursor para ejercutar la consulta SQL.
         cursor = mysql.connection.cursor()
-       
-        #Consulta para buscar al usuario por su correo
+        
+        #Consulta para buscar al usuario por su correo 
         sql = """
-            SELECT
+            SELECT 
             usuarios.id,
             usuarios.nombre,
             usuarios.apellido_p,
             usuarios.apellido_m,
             usuarios.correo,
-            usuarios.password_hash,
+            usuarios.password,
             roles.nombre
-            FROM usuarios
-            INNER JOIN id_rol
-            ON usuarios.id_rol = roles.id_rol
+            FROM usuarios 
+            INNER JOIN roles
+            ON usuarios.id_rol = roles.id_rol 
             WHERE usuarios.correo = %s
         """
         #Vamos a ejecutar la consulta pasando como parámetro el correo
@@ -119,9 +119,14 @@ def login():
 
             if session["rol"] == "Administrador":
                 return redirect(url_for("admin"))
+            elif session["rol"] == "Usuario":
+                return redirect(url_for("usuario"))
 
-            return redirect(url_for("usuario"))
-        return render_template("login.html")
+        return render_template(
+            "login.html",
+            error= "Correo o contraseña incorrectos")
+    
+    return render_template("login.html")
 
 #Ruta de administrador
 @app.route("/admin")
@@ -136,7 +141,7 @@ def admin():
         return "Acceso denegado"
     #Sino mandará a la vista de administrador
     return render_template(
-        "administrador.html",
+        "administrador.html", 
         nombre=session["nombre"])
 
 # PANEL DE USUARIO
@@ -161,9 +166,9 @@ def logout():
 
     session.clear()
 
-    return redirect(url_for("login"))
+    return render_template("login.html")
 
 
 #Iniciamos el servidor FLASK en el puerto 5000
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run(port=5000)  

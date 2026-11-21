@@ -1,29 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN</title>
-<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div>
-        <h1>INICIAR SESION</h1>
-        <form action="/login" method="POST">
-            <label>Correo:</label>
-            <input type="email" name="correo" required>
-            <label>Contraseña:</label>
-            <br><br>
-            <input type="password" name="password" readonly>
-            <button type="submit" class="btn btn-error">Entrar</button>
-        </form>
-        <p>¿No tienes cuenta?</p>
-        <a href="{{ url_for('registro') }}"></a>
-    </div>
-
+   <div>
+    <h1>INICIAR SESIÓN</h1>
+    <form action="/login" method="POST">
+        <label>Correo:</label>
+        <input type="email" name="correo" required>
+        <br><br>
+        <label>Contraseña:</label>
+        <input type="password" name="password" required>
+        <br><br>
+        <button type="submit">Entrar</button>
+    </form>
+    <p>¿No tienes cuenta?</p>
+   <a href="{{ url_for('registro') }}">Registrate</a>
+   </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </html>
-{% comment %} JJJ {% endcomment %}
-{% comment %} JH {% endcomment %}
